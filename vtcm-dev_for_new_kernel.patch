@@ -1,0 +1,12 @@
+diff -Naur ./cube-tcm/module/vtcmd_dev/vtcmd_dev.c ./cube-tcm-old/module/vtcmd_dev/vtcmd_dev.c
++++ ./cube-tcm/module/vtcmd_dev/vtcmd_dev.c	2019-03-30 17:30:44.894191000 +0800
+--- ./cube-tcm-old/module/vtcmd_dev/vtcmd_dev.c	2019-03-18 00:03:38.000000000 +0800
+@@ -168,7 +168,7 @@
+   int res;
+   struct sockaddr_in * tcm_addr;
+ //   res = sock_create(PF_UNIX, SOCK_STREAM, 0, &tcmd_sock);
++   res = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, 0, &tcmd_sock);
+-   res = sock_create_kern(AF_INET, SOCK_STREAM, 0, &tcmd_sock);
+   if (res != 0) {
+     error("sock_create_kern() failed: %d\n", res);
+     tcmd_sock = NULL;
