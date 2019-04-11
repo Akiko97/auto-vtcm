@@ -1,6 +1,6 @@
 # auto-vtcm
 编译cube &amp; vtcm环境、运行vtcm模拟器、退出环境的自动化脚本 <br/>
-cube环境及vtcm由北京工业大学可信计算实验室开发 => [here](https://github.com/TCLab-BJUT)
+cube环境及vtcm由北京工业大学可信计算北京市重点实验室开发 => [here](https://github.com/TCLab-BJUT)
 
 ## 使用方法
 ### 安装依赖
