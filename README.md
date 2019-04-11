@@ -11,6 +11,11 @@ cube环境及vtcm由北京工业大学可信计算实验室开发 => [here](http
 chmod u+x ./vtcm_build.sh
 ./vtcm_build.sh
 ```
+### 设置UUID
+```shell
+chmod u+x ./setuuid.sh
+./setuuid.sh
+```
 ### 运行模拟器
 ```shell
 sudo chmod 777 ./vtcm_run.sh
