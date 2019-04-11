@@ -41,3 +41,9 @@ chmod u+x ./restorebashrc.sh
 patch -p1 < ./vtcm-dev_for_new_kernel.patch
 ```
 ***该补丁适用于旧版本的cube-vtcm，新版本不需要使用***
+### qemu的tpm与host模拟器通信
+```shell
+sudo chmod 777 ./init_qemutcm.sh
+sudo ./init_qemutcm.sh
+```
+***请在qemu使用，使用前需要确保qemu已经支持了tpm并已经与host的vtcm进行连接***
