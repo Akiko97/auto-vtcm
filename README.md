@@ -5,7 +5,7 @@ cube环境及vtcm由北京工业大学可信计算北京市重点实验室开发
 ## 使用方法
 ### 安装依赖
 * 安装gcc、make和内核开发套件
-* 安装libwebsockets-dev
+* ~~安装libwebsockets-dev~~
 ### 编译环境
 ```shell
 chmod u+x ./vtcm_build.sh
@@ -36,11 +36,6 @@ chmod u+x ./vtcm_setenv.sh
 chmod u+x ./restorebashrc.sh
 ./restorebashrc.sh
 ```
-### ~~代码补丁~~（已修复）
-```shell
-patch -p1 < ./vtcm-dev_for_new_kernel.patch
-```
-***该补丁适用于旧版本的cube-vtcm，新版本不需要使用***
 ### qemu的tpm与host模拟器通信
 ```shell
 sudo chmod 777 ./init_qemutcm.sh

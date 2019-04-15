@@ -1,2 +1,2 @@
 #!/bin/bash
-cp  /etc/skel/.bashrc   $HOME/
+cp /etc/skel/.bashrc $HOME/
