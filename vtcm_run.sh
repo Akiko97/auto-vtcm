@@ -1,7 +1,7 @@
 #!/bin/bash
-killall main_proc
+sudo killall main_proc
 
-rmmod vtcmd_dev
+sudo rmmod vtcmd_dev
 
 VTCM_INSTALL_PATH=`pwd`
 export CUBE_PATH=$VTCM_INSTALL_PATH/cube-1.3
@@ -21,7 +21,7 @@ cd vtcm_new_emulator
 ./main_proc &
 
 cd ../module/vtcmd_dev
-./load_tpmd_dev.sh 13200
-chmod 0666 /dev/tcm
+sudo ./load_tpmd_dev.sh 13200
+sudo chmod 0666 /dev/tcm
 
 cd ../../..

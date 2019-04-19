@@ -1,4 +1,5 @@
 #!/bin/bash
+cp $HOME/.bashrc $HOME/.bashrc.withoutcube
 if grep 'cube-1.3' $HOME/.bashrc > /dev/null 2>&1
 then
 	echo "already set cube env"

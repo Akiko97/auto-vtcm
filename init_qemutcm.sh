@@ -1,3 +1,3 @@
 #!/bin/bash
-chmod 0666 /dev/tpm*
-ln -s /dev/tpm0 /dev/tcm
+sudo chmod 0666 /dev/tpm*
+sudo ln -s /dev/tpm0 /dev/tcm
