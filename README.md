@@ -5,13 +5,44 @@ cube环境及vtcm由北京工业大学可信计算北京市重点实验室开发
 ## 快速开始
 
 ```shell
+# 增加执行权限
 chmod u+x ./vtcmtools.sh
+# 安装依赖
+sudo apt install gcc make # 根据系统自行判断选择软件包管理工具
+```
+
+### 运行vtcm模拟器
+
+```shell
 ./vtcmtools.sh build
 # 运行
 ./vtcmtools.sh run
 # 停止
 ./vtcmtools.sh quit
 ```
+
+### 使用cube_manage开发
+
+```shell
+./vtcmtools.sh dev
+```
+
+### 清理所有文件
+
+```shell
+./vtcmtools.sh clean
+```
+
+### 开发模式与vtcm模拟器模式转换
+
+```shell
+# 开发模式 -> vtcm模拟器模式
+./vtcmtools.sh setenv
+# vtcm模拟器模式 -> 开发模式
+./vtcmtools.sh setenv-dev
+```
+
+
 
 ## 使用方法
 
@@ -34,11 +65,23 @@ chmod u+x ./vtcmtools.sh
 
 #### build
 
-执行：下载，打补丁，编译，设置UUID，设置环境变量
+执行：下载，打补丁，编译，设置UUID，设置vtcm环境变量
+
+#### dev
+
+执行：下载开发工具，打补丁，编译，设置UUID，设置开发环境变量
+
+#### clean
+
+清理全部内容
 
 #### download
 
-仅下载全部所需包
+仅下载全部所需包（vtcm）
+
+#### download-dev
+
+仅下载全部所需包（开发）
 
 #### setuuid
 
@@ -50,11 +93,15 @@ chmod u+x ./vtcmtools.sh
 
 #### setenv
 
-设置环境变量
+设置环境变量（vtcm）
+
+#### setenv-dev
+
+设置环境变量（开发）
 
 #### rmenv
 
-删除环境变量
+删除所设置的环境变量
 
 #### run
 
@@ -77,4 +124,8 @@ chmod u+x ./vtcmtools.sh
 初始化虚拟机TPM
 
 ***请在VM使用，使用前需要确保qemu已经支持了tpm并已经与host的vtcm进行连接***
+
+#### restorebashrc
+
+（谨慎使用）使用系统默认的bashrc覆盖现有文件
 
