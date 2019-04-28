@@ -2,6 +2,8 @@
 编译cube &amp; vtcm环境、运行vtcm模拟器、退出环境的自动化脚本 <br/>
 cube环境及vtcm由北京工业大学可信计算北京市重点实验室开发 => [here](https://github.com/TCLab-BJUT) <br/>具体使用查看[使用方法](#使用方法)，查看[快速开始](#快速开始)迅速开始基本操作
 
+***重新设置环境变量后务必重启Terminal***
+
 ## 快速开始
 
 ```shell
