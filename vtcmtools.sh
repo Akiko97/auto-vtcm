@@ -125,6 +125,8 @@ function setenv-dev {
 	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
 	echo "cd '`pwd`/cube_manage' # CUBEDEVENV" >> $HOME/.bashrc
 	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
+	echo "cd '`pwd`/cube_module' # CUBEDEVENV" >> $HOME/.bashrc
+	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
 	echo "cd \$oldpwd # CUBEDEVENV" >> $HOME/.bashrc
 	echo "add cube development env to .bashrc"
 }
@@ -157,6 +159,10 @@ function dev {
 	make
 	cd ../module
 	make
+	cd $VTCM_INSTALL_PATH
+	cp -a ./cube_manage/module_workshop ./cube_module
+	cd ./cube_module/tools/header_make
+	ln -s $CUBE_PATH/proc/main/main_proc
 	cd $VTCM_INSTALL_PATH
 }
 
@@ -236,10 +242,16 @@ function usage {
 }
 
 function clean {
-	quit
-	rmenv
-	rm -rf cube-1.3 gm_sm2_master cube-tcm cube_manage
-	echo "you can safely remove auto-vtcm folder"
+	read -p "your cube_module folder will be removed [Y/n]: " ch
+	if [[ $ch == "Y" ]]
+	then
+		quit
+		rmenv
+		rm -rf cube-1.3 gm_sm2_master cube-tcm cube_manage cube_module
+		echo "you can safely remove auto-vtcm folder"
+	else
+		echo "Abort"
+	fi
 }
 
 if [[ $USER == "root" ]]
