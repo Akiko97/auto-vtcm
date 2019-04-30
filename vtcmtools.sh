@@ -123,6 +123,8 @@ function setenv-dev {
 	echo "oldpwd=\`pwd\` # CUBEDEVENV" >> $HOME/.bashrc
 	echo "cd '`pwd`/cube-1.3' # CUBEDEVENV" >> $HOME/.bashrc
 	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
+	echo "cd '`pwd`/cube-tcm' # CUBEDEVENV" >> $HOME/.bashrc
+	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
 	echo "cd '`pwd`/cube_manage' # CUBEDEVENV" >> $HOME/.bashrc
 	echo "source ./set_env.sh # CUBEDEVENV" >> $HOME/.bashrc
 	echo "cd '`pwd`/cube_module' # CUBEDEVENV" >> $HOME/.bashrc
