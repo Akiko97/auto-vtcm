@@ -152,6 +152,7 @@ function setworkshop {
 			_setworkshop
 		else
 			_setworkshop
+		fi
 	fi
 }
 
