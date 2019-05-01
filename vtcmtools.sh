@@ -133,6 +133,28 @@ function setenv-dev {
 	echo "add cube development env to .bashrc"
 }
 
+function _setworkshop {
+	cp -a ./cube_manage/module_workshop ./cube_module
+	cd ./cube_module/tools/header_make
+	ln -s $CUBE_PATH/proc/main/main_proc
+	cd ../module_create
+	ln -s $CUBE_PATH/proc/main/main_proc
+	cd $VTCM_INSTALL_PATH
+}
+
+function setworkshop {
+	if [ -d cube_module ]
+	then
+		read -p "cube_module already exists, reset? [Y/n]" ch
+		if [[ $ch == "Y" ]]
+		then
+			rm -rf cube_module
+			_setworkshop
+		else
+			_setworkshop
+	fi
+}
+
 function dev {
 	if [ -d cube-1.3 ]
 	then
@@ -162,10 +184,8 @@ function dev {
 	cd ../module
 	make
 	cd $VTCM_INSTALL_PATH
-	cp -a ./cube_manage/module_workshop ./cube_module
-	cd ./cube_module/tools/header_make
-	ln -s $CUBE_PATH/proc/main/main_proc
-	cd $VTCM_INSTALL_PATH
+
+	setworkshop
 }
 
 function restorebashrc {
@@ -228,6 +248,9 @@ function usage {
 	echo "	dev - build development enviroment"
 	echo "	clean - clean all downloaded or modified file"
 	echo ""
+	echo "	run - run vtcm emulator and load vtcmd_dev"
+	echo "	quit - quit vtcm emulator and unload vtcmd_dev"
+	echo ""
 	echo "	download - just download all packages"
 	echo "	download-dev - download cube_manage"
 	echo "	setuuid - set UUID"
@@ -235,10 +258,9 @@ function usage {
 	echo "	setenv - set vtcm env to .bashrc"
 	echo "	setenv-dev - set cube development env to .bashrc"
 	echo "	rmenv - remove env from .bashrc"
-	echo "	run - run vtcm emulator and load vtcmd_dev"
-	echo "	quit - quit vtcm emulator and unload vtcmd_dev"
 	echo "	vtcmd_dev - load vtcmd_dev"
 	echo "	unvtcmd_dev - unload vtcmd_dev"
+	echo "	setworkshop - (re)copy module_workshop to new folder cube_module"
 	echo "	initvm - init virtual machine TPM"
 	echo "	restorebashrc - restore .bashrc file with system"
 }
@@ -280,6 +302,7 @@ then
 		restorebashrc) restorebashrc ;;
 		dev) dev ;;
 		clean) clean ;;
+		setworkshop) setworkshop ;;
 		*) echo "Wrong Command!"
 		   usage ;;
 	esac
