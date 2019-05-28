@@ -200,7 +200,7 @@ function quit {
 
 function vtcmd_dev {
 	cd ./cube-tcm/module/vtcmd_dev
-	sudo ./load_tpmd_dev.sh 13200
+	sudo ./load_vtcmd_dev.sh 13200
 	sudo chmod 0666 /dev/tcm
 	sudo chmod 0666 /dev/vtcm*
 	cd -
